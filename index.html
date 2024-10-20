@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Rafif</title>
+    <style>
+      body{
+        overflow-x: hidden;
+      }
+
+      .navbar{
+        backdrop-filter:blur(15px);
+      }
+      .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-element {
+            position: fixed;
+            bottom: 20px; /* Jarak dari bawah */
+            right: 20px; /* Jarak dari kanan */
+            display: none; /* Sembunyikan secara default */
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 999; /* Pastikan elemen di atas konten lain */
+            opacity: 0; /* Mulai dengan opasitas 0 */
+            transition: opacity 0.5s ease; /* Transisi untuk efek halus */
+        }
+/* Style untuk loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Pastikan loader berada di atas konten */
+}
+
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #007bff; /* Warna spinner */
+    border-radius: 50%;
+    width: 60px; /* Ukuran spinner */
+    height: 60px; /* Ukuran spinner */
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    </style>
+  </head>
+  <body class="bg-[#041631]">
+    <div id="loader" class="loader">
+      <div class="spinner"></div>
+  </div>
+  
+  <nav class="navbar bg-[#92929241] z-50 drop-shadow-lg fixed w-full lg:flex lg:gap-5 lg:items-center lg:p-4 lg:justify-center">
+    <div class="flex justify-between items-center p-4 lg:p-0">
+      <h2 class="text-white sm:text-2xl text-3xl font-bold lg:absolute left-2">@Rafif </h2>
+      <!-- Hamburger Icon (Visible on Small Screens) -->
+      <button id="menu-btn" class="block lg:hidden text-white focus:outline-none" aria-label="Open Menu">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  
+    <!-- Menu Items (Hidden on Small Screens by Default) -->
+    <div id="menu" class="hidden lg:flex flex-col lg:flex-row lg:gap-6 lg:items-center">
+      <a href="#home" class="text-[#ffff] hover:text-[#448eef] scale-105 hover:scale-110 duration-200 font-bold flex flex-col items-center mb-4 lg:mb-0">
+        Home
+        <div class="garis rounded-lg w-full h-1 bg-transparent hover:bg-[#075FD2] duration-200"></div>
+      </a>
+      <a href="#about" class="text-[#ffff] font-bold hover:text-[#448eef] scale-105 hover:scale-110 duration-200 flex flex-col items-center mb-4 lg:mb-0">
+        Keahlian
+        <div class="garis rounded-lg w-full h-1 bg-transparent hover:bg-[#075FD2] duration-200"></div>
+      </a>
+      <a href="#project" class="text-[#ffff] hover:text-[#448eef] scale-105 hover:scale-110 duration-200 font-bold flex flex-col items-center mb-4 lg:mb-0">
+        Project
+        <div class="garis rounded-lg w-full h-1 bg-transparent hover:bg-[#075FD2] duration-200"></div>
+      </a>
+      <a href="#riwayat" class="text-[#ffff] hover:text-[#448eef] duration-200 font-bold flex scale-105 hover:scale-110 flex-col items-center mb-4 lg:mb-0">
+        Riwayat Pendidikan
+        <div class="garis rounded-lg w-full h-1 bg-transparent hover:bg-[#075FD2] duration-200"></div>
+      </a>
+    </div>
+  </nav>
+  
+
+
+  <section class="home pt-40 fade-in pl-4 pr-4 sm:pl-8 sm:pr-8 pb-10" id="home">
+    <div class="flex flex-col-reverse lg:flex-row justify-between items-center lg:px-20 gap-10">
+      
+      <!-- Text Section -->
+      <div class="mb-10 lg:mb-60 text-center lg:text-left"> 
+        <h1 class="text-white text-4xl sm:text-5xl font-bold mb-4 relative" id="nama"></h1>
+        <h3 class="text-[#075FD2] text-3xl sm:text-4xl lg:text-5xl mb-7 relative" id="sub"></h3>
+        <button class="relative bg-gradient-to-r from-[#3777cc] to-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-none hover:border-2 hover:border-sky-600 hover:text-sky-600 hover:scale-95 transition duration-300">
+          <a href="#about">GET STARTED</a>
+        </button>
+      </div>
+  
+      <!-- Image Section -->
+      <div class="w-full sm:w-3/4 md:w-2/4 lg:max-w-sm rounded-[60%] overflow-hidden bg-[#1558a0]">
+        <img class="w-full h-auto object-cover" src="image/profil.png" alt="Profil Image">
+      </div>
+  
+    </div>
+  </section>
+  
+
+  <section id="about" class="w-full pt-10 flex-col fade-in shadow-[0_0px_30px_-12px_rgba(255,255,255,1)] pl-5 pr-5 md:pl-20 md:pr-20">
+      
+    <div class="container mx-auto">
+      <div class="judul">
+  
+      </div>
+  
+      <div class="cards flex flex-col sm:flex-row justify-center gap-5">
+        <!-- UI UX Card -->
+        <div class="card w-full sm:w-60 h-40 bg-gradient-to-r from-[#023162] to-[#023162] text-white font-bold py-2 px-4 rounded hover:bg-none hover:border-2 hover:border-sky-600 hover:text-sky-600 hover:scale-95 transition duration-500 flex justify-center items-center flex-col gap-4">  
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-12 h-12 md:w-16 md:h-16">
+            <path fill="#075FD2"  d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3L344 320c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
+          </svg>
+          <h1 class="">UI UX</h1>
+        </div>
+        <!-- FrontEnd Card -->
+        <div class="card w-full sm:w-60 h-40 bg-gradient-to-r from-[#023162] to-[#023162] text-white font-bold py-2 px-4 rounded hover:bg-none hover:border-2 hover:border-sky-600 hover:text-sky-600 hover:scale-95 transition duration-500 flex justify-center items-center flex-col gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 640 512"  class="w-12 h-12 md:w-16 md:h-16">
+            <path fill="#075FD2"  d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/>
+          </svg>
+          <h1 class="">FrontEnd</h1>
+        </div>
+        <!-- BackEnd Card -->
+        <div class="card w-full sm:w-60 h-40 bg-gradient-to-r from-[#023162] to-[#023162] text-white font-bold py-2 px-4 rounded hover:bg-none hover:border-2 hover:border-sky-600 hover:text-sky-600 hover:scale-95 transition duration-500 flex justify-center items-center flex-col gap-4">
+          <svg fill="#075FD2" class="w-12 h-12 md:w-16 md:h-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M9.4 86.6C-3.1 74.1-3.1 53.9 9.4 41.4s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416l288 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-288 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
+          </svg>
+          <h1 class="">BackEnd</h1>
+        </div>
+  
+      </div>
+    </div>
+  
+  
+    <div class="pt-10">
+      <!-- Sertifikat -->
+      <div class="flex flex-col justify-center items-center fade-in">
+          <h1 class="text-3xl md:text-5xl flex justify-center text-white font-slope fade-in">Sertifikat</h1>
+          <div class="h-1 w-6/12 md:w-80  rounded-sm bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-10 md:mb-20"></div>
+      </div>
+      
+      <!-- Container sertifikat dengan Flexbox -->
+      <div class="flex flex-col sm:flex-row justify-center gap-10">
+        <div class="shadow-[#0094FF] p-4 max-w-sm w-full rounded overflow-hidden shadow-lg cursor-pointer transform transition duration-500 hover:scale-105" onclick="showInfo('sertifikat')">
+          <img class="w-full h-48 object-cover" src="image/Tim Eskalaber piagam.jpg" alt="Gambar Sertifikat">
+          <div class="px-6 py-4">
+            <div class="font-bold text-white text-xl mb-2">Sertifikat</div>
+            <p class="text-white text-base">
+              Klik untuk melihat sertifikat saya.
+            </p>
+          </div>
+        </div>
+    
+        <div class="shadow-[#0094FF] p-4 max-w-sm w-full rounded overflow-hidden shadow-lg cursor-pointer transform transition duration-500 hover:scale-105" onclick="showInfo('sertifikat2')">
+          <img class="w-full h-48 object-cover" src="image/Sertifikat kominfo_page-0001.jpg" alt="Gambar Sertifikat">
+          <div class="px-6 py-4">
+            <div class="font-bold text-white text-xl mb-2">Sertifikat</div>
+            <p class="text-white text-base">
+              Klik untuk melihat sertifikat saya.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex justify-center items-center w-full">
+      <div id="infoModal" class="hidden fixed inset-0 bg-gray-800 flex-col bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 max-w-xl w-full mx-4">
+          <h2 id="modalTitle" class="text-xl font-bold text-center"></h2>
+    
+          <!-- Kontainer Gambar -->
+          <div id="modalImages" class="flex flex-wrap mt-4 gap-4 justify-center">
+            <!-- Gambar akan ditambahkan melalui JavaScript -->
+          </div>
+    
+          <p id="modalContent" class="mt-4 text-center"></p>
+          <button onclick="closeModal()" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Tutup</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex flex-col mt-10 md:flex-row justify-center gap-10 fade-in">
+      <!-- Keahlian Section -->
+      <div class="flex-col pl-4 w-full md:w-1/2 flex justify-start fade-in ">
+          <h1 class="text-3xl md:text-5xl pt-[20px] text-white mb-10 font-slope">Keahlian</h1>
+          <div class="h-1 w-60 rounded-sm bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-20"></div>
+          <div class="grid gap-5">
+              <!-- Skill Item 1 -->
+              <div class="card mb-8 flex items-start p-4 bg-gray-800 rounded-lg shadow-md w-full scale-100 hover:scale-105 duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="w-10 h-10">
+                      <path fill="#075FD2" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
+                  </svg>
+                  <div class="ml-6 fade-in">
+                      <h3 class="text-3xl    text-white font-semibold">Web Development</h3>
+                      <h4 class="text-white font-bold">HTML, CSS, JavaScript, PHP, Laravel, Tailwind</h4>
+                  </div>
+              </div>
+  
+              <!-- Skill Item 2 -->
+              <div class="card fade-in mb-8 flex items-start p-4 bg-gray-800 rounded-lg shadow-md w-full scale-100 hover:scale-105 duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="w-10 h-10">
+                      <path fill="#075FD2" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
+                  </svg>
+                  <div class="ml-6 fade-in">
+                      <h3 class="text-3xl text-white font-semibold">Microsoft Office</h3>
+                      <h4 class="text-white font-bold">Word, Excel, PowerPoint</h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Penghargaan Section -->
+      <div class="w-full md:w-1/2 pl-4 md:pl-10 flex flex-col justify-start fade-in">
+          <h1 class="text-3xl md:text-5xl text-white mb-10 pt-5 font-slope">Penghargaan</h1>
+          <div class="h-1 w-8/12 rounded-sm bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-20"></div>
+          <div class="relative fade-in">
+              <!-- Timeline Item 1 -->
+              <div class="card fade-in mb-8 flex items-center p-4 bg-gray-800 rounded-lg shadow-md w-full scale-100 hover:scale-105 duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#075FD2" class="w-10 h-10 mr-4" viewBox="0 0 512 512">
+                      <path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0L133.9 0c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0L487.4 0C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z" />
+                  </svg>
+                  <div>
+                      <h3 class="text-lg text-white font-semibold">3rd runner up at EPIM TI 2024</h3>
+                      <p class="text-white">2024</p>
+                  </div>
+              </div>
+              <!-- Timeline Item 2 -->
+              <div class="card mb-8 flex items-center p-4 bg-gray-800 rounded-lg shadow-md w-full scale-100 hover:scale-105 duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#075FD2" class="w-20   h-10 mr-4" viewBox="0 0 512 512">
+                      <path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0L133.9 0c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0L487.4 0C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z" />
+                  </svg>
+                  <div>
+                      <h3 class="text-lg text-white font-semibold">Finalist in national level web programming  competition  (EPIM TI 2024) <br>  Politeknik Negeri Jember</h3>
+                      <p class="text-white">2024</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+      </section>
+      
+    <section id="project" class="w-full h-full pt-10 pl-5 pr-5 md:pl-20 md:pr-20 fade-in">
+  <div class="flex flex-col justify-center items-center fade-in">
+    <h1 class="text-3xl md:text-5xl text-white font-slope">Project</h1>
+    <div class="h-1 w-40 rounded-sm md:w-60 bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-10 md:mb-20"></div>
+  </div>
+
+  <!-- Vertical Cards -->
+  <div class="space-y-6 fade-in">
+    
+    <!-- Card 1 -->
+    <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 lg:p-6 flex flex-col md:flex-row">
+      <div class="w-full md:w-1/4">
+        <img src="image/DJ4U.png" alt="DJ4U Concert" class="w-full h-auto rounded-lg">
+      </div>
+      <div class="w-full md:w-3/4 pl-0 md:pl-6 flex flex-col justify-center mt-4 md:mt-0">
+        <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Web Pemesanan Tiket Konser DJ4U</h2>
+        <p class="mt-2 md:mt-4 text-white text-sm md:text-base">
+          Web ini merupakan platform untuk pemesanan tiket konser DJ4U. DJ4U menghadirkan pengalaman konser modern yang pernah Anda rasakan! Temukan lineup DJ terkenal, jadwal konser terbaru, dan tiket presale dengan harga spesial.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 lg:p-6 flex flex-col md:flex-row">
+      <div class="w-full md:w-1/4">
+        <img src="image/api.png" alt="REST API Library" class="w-full h-auto rounded-lg">
+      </div>
+      <div class="w-full md:w-3/4 pl-0 md:pl-6 flex flex-col justify-center mt-4 md:mt-0">
+        <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">REST API Manajemen Perpustakaan</h2>
+        <p class="mt-2 md:mt-4 text-white text-sm md:text-base">
+          REST API Manajemen Perpustakaan adalah antarmuka pemrograman yang memungkinkan aplikasi berinteraksi dengan sistem perpustakaan melalui HTTP. API ini mengelola data perpustakaan seperti buku, anggota, pinjaman, dan pengembalian.
+        </p>
+      </div>
+    </div>
+
+    <!-- Hidden Projects -->
+    <div id="moreProjects" class="space-y-6 mt-6 hidden">
+      
+      <!-- Card 3 -->
+      <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 lg:p-6 flex flex-col md:flex-row">
+        <div class="w-full md:w-1/4">
+          <img src="image/DF.png" alt="Djember Fest" class="w-full h-auto rounded-lg">
+        </div>
+        <div class="w-full md:w-3/4 pl-0 md:pl-6 flex flex-col justify-center mt-4 md:mt-0">
+          <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Website Djember Fest</h2>
+          <p class="mt-2 md:mt-4 text-white text-sm md:text-base">
+            Djember Fest, sebuah website yang dibangun untuk mengekspose Jember, keanekaragamannya dari budaya, destinasi, hingga UMKM. Ini membuat Anda ingin segera mengunjungi Jember!
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 (Additional Project) -->
+      <!-- <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 lg:p-6 flex flex-col md:flex-row">
+        <div class="w-full md:w-1/4">
+          <img src="image/example4.png" alt="Project 4" class="w-full h-auto rounded-lg">
+        </div>
+        <div class="w-full md:w-3/4 pl-0 md:pl-6 flex flex-col justify-center mt-4 md:mt-0">
+          <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Project Lainnya</h2>
+          <p class="mt-2 md:mt-4 text-white text-sm md:text-base">
+            Ini adalah project tambahan sebagai contoh lainnya. Menampilkan konten menarik yang memberikan insight baru dan inovatif.
+          </p>
+        </div>
+      </div> -->
+      
+    </div>
+
+    <!-- Button Selengkapnya (Moved Here) -->
+    <div class="flex justify-center">
+      <button id="showMoreBtn" class="bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300">
+        Selengkapnya
+      </button>
+    </div>
+
+  </div>
+</section>
+      
+      
+      <!-- <div class="project pt-5 md:pt-10 flex flex-col md:flex-row fade-in">
+        <div class="card flex flex-col md:flex-row md:space-x-4">
+          <img src="image/Tim Eskalaber B sertifikat.jpg" alt="" class="w-full md:w-1/3 scale-100 hover:scale-105 duration-300 mb-4 md:mb-0 md:pl-10">
+          <div class="teks">
+            <p class="text-white text-justify text-xl md:text-3xl leading-relaxed w-full md:w-2/3">
+              Lorem ipsum dolor
+            </p>
+            <p class="text-white text-justify leading-relaxed text-sm md:text-base w-full md:w-2/3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eum facere rem cupiditate? Aliquam, voluptatem voluptate totam atque animi praesentium repellat eius sit. Repudiandae ipsam nostrum rerum, deleniti culpa laboriosam!
+            </p>
+          </div>
+        </div>
+      </div> -->
+      
+
+      <section id="riwayat" class="keahlian fade-in w-full pt-10 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 pl-5 pr-5 md:pl-20 md:pr-20 items-start">
+        <!-- Riwayat Pendidikan -->
+        <div class="flex flex-col justify-center fade-in">
+          <div class="bg-[#075FD2] p-6 rounded-lg shadow-lg">
+            <h1 class="text-xl md:text-2xl text-white mb-4 font-bold">Riwayat Pendidikan
+               <svg width="98" height="98" viewBox="0 0 98 98" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g filter="url(#filter0_d_833_7)">
+              <rect x="4" width="90" height="90" fill="url(#pattern0_833_7)" shape-rendering="crispEdges"/>
+              </g>
+              <defs>
+              <filter id="filter0_d_833_7" x="0" y="0" width="98" height="98" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="4"/>
+              <feGaussianBlur stdDeviation="2"/>
+              <feComposite in2="hardAlpha" operator="out"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_833_7"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_833_7" result="shape"/>
+              </filter>
+              <pattern id="pattern0_833_7" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_833_7" transform="scale(0.0111111)"/>
+              </pattern>
+              <image id="image0_833_7" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAADuklEQVR4nO2cO2sVQRSAr5DcKNilsRAjmCpgYUR8dgoq2FhY+ADBF4L6Q8T4aoKijZZCQCWVIWgRtRQs1DSiTVBIJEpE70bzycCs5nHvdXdnZndm7vlgm/uYc86Xw+7Z3eyt1QRBEARBEARBEAQzgI3ALWBGb8NAn+GyQgqwAbgJ/GQlCXAf2PT3C4JVwSK8ZMHLkQ53LFiElyy4VYf31zoV3AoW4ZQruPOEU63g+IV7Jjg+4Z4LDl94YILDEx64YP+FRybYP+GRC65eeIcJLl94hwt2L1wEOxYugh0LF8GOhYtgx8KBHuCGflOwS6Ld1pXoa5YXF1YyVNO37gW3TIvoEkVfLSlYJ3NFia4D1+Vg6ISGPgbWZbxzg8zTjpEzRMfINQ/HyFU8x8h16ZjvtPwgfhIf7h32Abf1zBgbDV1bricLgC3AQ1fCY+rwpEgHA5uBB8CCWsSJ6EiEJzYEp7izHO4upVFkF7Go1iWCU+xbDbfDExsHuVaL27MYrvDE5hTRKoiNtUMVnrgY01oFsxljcbBBj/fhjYJj2qCPohVjwDaPOjwxnSJ8FY0nwhNbY5rvoqsSnticg0MSXZbwxLbgUEW7Eu5McIpJ7XlyypN8VhaAx8DWAlPKsMnPSKgpAniURXAMoo06vGBumTt4OSa1uyrGhDEXwk0E55Fl8t0iRdlgzIZwG4JTTGo3rSNXsDKFY1FwiknthUQWDVaGcBwITjGp3YrYrMEs8Qy4AAwAa/U2oF976kKwz6LniI9vPop+R3y88VG0ugwZG8M+it5DfOzyTrQOOE48PMlRd+mi+4HvhM9cnl+HLF20DnoI+EW4/AYO56y5Ke4s/wt8EpgnPBLgRIF6m+LG7srgBwN7tG4a2F+w1qbYt9r+ov04/qNO9dcXrLG7zbrd9q22T+Y48AH/UDkdM6hrHfC8zfoT6jN2bf4/qTpw3pMzyLfAuSWPpRWr52WGWC9M4hQGWAXs0/f6vlIes8A9YK/KwUId6g+VlbN27BVPdjVwQD+9+8rypDKv1xzSMXos5646NSsTNZ8A1gA7VQcAl4ERvZ+bBL7orkyZ1VPNpP7MiP7OGWCHWstxriqfrMy4zCVqgM85RH+qOt9gAUZziB6tOt9gUWNhDtFHq843WPTxZCqD5CnXx4voAS5lEH2x6jyDR5+0vG8j+aPtsbJjAU63EX2q6vyiAegCXjeRrF7rqjq/qAC26xsGKer/THZXnVeUAHcXib5TdT7RAvTqs0W19VadTy1mgCNqa/bmH/uilwAmnrHYAAAAAElFTkSuQmCC"/>
+              </defs>
+              </svg> 
+              </h1>
+            <div class="h-1 w-[150px] bg-white rounded-full mb-6"></div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <h2 class="text-lg font-bold text-[#333]">SMKN 8 Jember</h2>
+              <p class="text-[#333]">Jurusan Rekayasa Perangkat Lunak</p>
+              <ul class="text-[#333] mt-3 space-y-1">
+                <li>2023-2024 kelas X</li>
+                <li>2024-2025 kelas XI</li>
+                <li>2025-2026 kelas XII</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Pengalaman -->
+        <div class="flex flex-col justify-center fade-in">
+          <div class="bg-[#075FD2] p-6 rounded-lg shadow-lg">
+            <h1 class="text-xl md:text-2xl text-white mb-4 font-bold">Pengalaman</h1>
+             <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect width="90" height="90" fill="url(#pattern0_835_8)"/>
+              <defs>
+              <pattern id="pattern0_835_8" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_835_8" transform="scale(0.0111111)"/>
+              </pattern>
+              <image id="image0_835_8" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cQU4CMQCF4VmJ3EDBxCN5EAV34jn0TqIr4RruDGxYPdM4CzQYaBnflPb/EjcQZfjTtI0daBoAAAAAQBxJ55LuJb1JWutv4blXSVNJg8iXqZukK0lLxVuE3+37+k9pJC8TIm/HZmTv004Xx5rsfaHa6XtOPta87/eRPUmrDkKvmoJX/9qsO9vtHLH612aRvNvpYPWvzSJpZHe0+tdm0tfqX5t5X6t/bVYpoZGA0CaENiG0CaFNCG1CaBNCmxDahNAmhDYhtAmhTQhtQmgTQpsQ2oTQJoQ2IbQJoU1KCL2R9CBp1P7M2seyUkLo2Y5rDLGzUkLoyx3XeKHMlBB6tOMax8pMqVPHozJTQuhNOycXtxhy7128z5TQ3E1qups0fGQAce5SQg/au9hxmHdJZ9Ghtz7DQuzDIo+TIv8a2ZMw/7BA/hA2Cy9hukgeyQCAvEm65esYojcNSfvo4EPSk6QbSdeShtF/qFCShm2T0Oa5bVXEP5VOAqFNCG1CaBNCmxDahNAmhDYhdMahOZyNx+GsCYezJhzOGnA4a8Dh7D/icBYAAAAAAAAAmoN9AYUMpUGp2d3MAAAAAElFTkSuQmCC"/>
+              </defs>
+              </svg> 
+              
+            <div class="h-1 w-[150px] bg-white rounded-full mb-6"></div>
+            <div class="space-y-4">
+              <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-lg font-bold text-[#333]">Industrial class with PT Humma Teknologi Indonesia(HUMMATECH) </h2>
+                <p class="text-[#333]  ">I joined PT's industrial Class. Humma Teknologi Indonesia (HUMMATECH)</p>
+                <p class="text-[#333] text-xs">February 2024 to December 2024 Malang</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-lg font-bold text-[#333]">Teaching Factory ( Jinggolabs ) SMKN 8 Jember</h2>
+                <p class="text-[#333]  ">I joined Teaching Factory (Tefa) Jinggolabs, Jember, East Java</p>
+                <p class="text-[#333]">2024 - Sekarang</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+         <!-- Load FontAwesome from CDN -->
+        
+        <section id="hubungi" class="keahlian fade-in w-full pt-10 md:pt-20 flex flex-col items-center">
+          <h1 class="text-3xl md:text-5xl pt-5 flex pl-4 text-white font-slope mb-5 md:mb-10">Hubungi Saya</h1>
+          <div class="h-1 w-40 rounded-sm md:w-96 bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-10 md:mb-20"></div>
+        
+          <div class="flex flex-col lg:flex-row gap-10 justify-center items-center">
+            <div class="cards flex flex-col lg:flex-row gap-10 items-center">
+              <!-- Gambar -->
+              <img src="image/10117693_4346289 1.svg" alt="Ilustrasi Hubungi Saya" class="transition duration-500 ease-in-out transform hover:scale-105 w-60 md:w-80 lg:w-[400px]">
+            </div>
+            
+            <!-- Social Media Icons -->
+            <div class="flex flex-col items-center lg:items-start">
+              <h1 class="text-white text-xl md:text-2xl pb-5 md:pb-10 text-center lg:text-left">Hubungi Saya Di Bawah Ini</h1>
+        
+              <div class="social-icons w-full flex justify-center lg:justify-start items-center gap-6 md:gap-8 mt-5 md:mt-10">
+                <!-- WhatsApp -->
+                <div class="w-[3rem] md:w-[4rem] h-[3rem] md:h-[4rem] bg-[#020F1C] rounded-tl-2xl rounded-br-2xl flex justify-center items-center hover:bg-transparent hover:text-neutral-800 hover:rotate-6 hover:scale-95 transition-all">
+                  <a href="https://wa.me/089627507491" target="_blank" class="text-4xl md:text-5xl text-[#0094FF]" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </div>
+                <!-- GitHub -->
+                <div class="w-[3rem] md:w-[4rem] h-[3rem] md:h-[4rem] bg-[#020F1C] rounded-tl-4xl rounded-br-2xl flex justify-center items-center hover:bg-transparent hover:text-neutral-800 hover:rotate-6 hover:scale-95 transition-all">
+                  <a href="https://github.com/RAFIF-RF10" target="_blank" class="text-4xl md:text-5xl text-[#0094FF]" title="GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+                <!-- Instagram -->
+                <div class="w-[3rem] md:w-[4rem] h-[3rem] md:h-[4rem] bg-[#020F1C] rounded-tl-4xl rounded-br-2xl flex justify-center items-center hover:bg-transparent hover:text-neutral-800 hover:rotate-6 hover:scale-95 transition-all">
+                  <a href="https://www.instagram.com/rafif3207?igsh=cnA0NXFhMG04cDNl" target="_blank" class="text-4xl md:text-5xl text-[#0094FF]" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+                <!-- LinkedIn -->
+                <div class="w-[3rem] md:w-[4rem] h-[3rem] md:h-[4rem] bg-[#020F1C] rounded-tl-4xl rounded-br-2xl flex justify-center items-center hover:bg-transparent hover:text-neutral-800 hover:rotate-6 hover:scale-95 transition-all">
+                  <a href="https://linkedin.com/in/your-username" target="_blank" class="text-4xl md:text-5xl text-[#0094FF]" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="w-full h-20 bg-[#000000]">
+          <div class="flex items-center justify-center h-full px-4">
+              <p class="text-white text-center text-sm md:text-base">Copyright © 2024 RAFIF</p>
+          </div>
+      </footer>
+      
+
+      
+      
+      <script src="script.js"></script>
+    </body>
+    </html>
+    
+
+  </body>
+</html>
+ 
