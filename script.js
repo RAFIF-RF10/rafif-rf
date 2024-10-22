@@ -179,21 +179,20 @@ document.addEventListener('scroll', () => {
       }
   });
 });
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
 
-menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
-  });
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const hiddenCards = [document.getElementById('hiddenCard1'), document.getElementById('hiddenCard2'), document.getElementById('hiddenCard3')];
 
-document.getElementById('showMoreBtn').addEventListener('click', function() {
-  const moreProjects = document.getElementById('moreProjects');
-  if (moreProjects.classList.contains('hidden')) {
-    moreProjects.classList.remove('hidden');
-    this.textContent = 'Sembunyikan'; // Ubah teks tombol menjadi "Sembunyikan"
-    moreProjects.insertAdjacentElement('afterend', this); // Pindahkan tombol ke bawah card yang baru muncul
-  } else {
-    moreProjects.classList.add('hidden');
-    this.textContent = 'Selengkapnya'; // Ubah teks tombol kembali ke "Selengkapnya"
-  }
-});
+    showMoreBtn.addEventListener('click', () => {
+        hiddenCards.forEach(card => {
+            card.classList.toggle('hidden');
+        });
+
+        // Toggle button text between 'Selengkapnya' and 'Sembunyikan', using .trim() to avoid extra spaces issue
+        if (showMoreBtn.textContent.trim() === 'Selengkapnya') {
+            showMoreBtn.textContent = 'Sembunyikan';
+        } else {
+            showMoreBtn.textContent = 'Selengkapnya';
+        }
+    });
+

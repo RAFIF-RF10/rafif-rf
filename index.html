@@ -275,82 +275,77 @@
   
       </section>
       
-    <section id="project" class="w-full h-full pt-10 pl-5 pr-5 md:pl-20 md:pr-20 fade-in">
-  <div class="flex flex-col justify-center items-center fade-in">
-    <h1 class="text-3xl md:text-5xl text-white font-slope">Project</h1>
-    <div class="h-1 w-40 rounded-sm md:w-60 bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-10 md:mb-20"></div>
-  </div>
-
-  <!-- Vertical Cards -->
-  <div class="space-y-6 fade-in">
+      <section id="project" class="w-full h-full pt-10 pl-5 pr-5 md:pl-20 md:pr-20 fade-in">
+        <div class="flex flex-col justify-center items-center fade-in">
+            <h1 class="text-3xl md:text-5xl text-white font-slope">Project</h1>
+            <div class="h-1 w-40 rounded-sm md:w-60 bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-10 md:mb-20"></div>
+        </div>
     
-    <!-- Card 1 -->
-    <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 lg:p-6 flex flex-col md:flex-row">
-      <div class="w-full md:w-1/4">
-        <img src="image/DJ4U.png" alt="DJ4U Concert" class="w-full h-auto rounded-lg">
-      </div>
-      <div class="w-full md:w-3/4 pl-0 md:pl-6 flex flex-col justify-center mt-4 md:mt-0">
-        <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Web Pemesanan Tiket Konser DJ4U</h2>
-        <p class="mt-2 md:mt-4 text-white text-sm md:text-base">
-          Web ini merupakan platform untuk pemesanan tiket konser DJ4U. DJ4U menghadirkan pengalaman konser modern yang pernah Anda rasakan! Temukan lineup DJ terkenal, jadwal konser terbaru, dan tiket presale dengan harga spesial.
-        </p>
-      </div>
-    </div>
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
+            
+            <!-- Card 1 -->
+            <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 flex flex-col items-center">
+                <img src="image/DJ4U.png" alt="DJ4U Concert" class="w-full h-auto rounded-lg mb-4">
+                <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Web Pemesanan Tiket Konser DJ4U</h2>
+                <p class="mt-2 text-white text-sm md:text-base text-center">
+                    Web ini merupakan platform untuk pemesanan tiket konser DJ4U. DJ4U menghadirkan pengalaman konser modern yang pernah Anda rasakan! Temukan lineup DJ terkenal, jadwal konser terbaru, dan tiket presale dengan harga spesial.
+                </p>
+            </div>
     
-    <!-- Card 2 -->
-    <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 lg:p-6 flex flex-col md:flex-row">
-      <div class="w-full md:w-1/4">
-        <img src="image/api.png" alt="REST API Library" class="w-full h-auto rounded-lg">
-      </div>
-      <div class="w-full md:w-3/4 pl-0 md:pl-6 flex flex-col justify-center mt-4 md:mt-0">
-        <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">REST API Manajemen Perpustakaan</h2>
-        <p class="mt-2 md:mt-4 text-white text-sm md:text-base">
-          REST API Manajemen Perpustakaan adalah antarmuka pemrograman yang memungkinkan aplikasi berinteraksi dengan sistem perpustakaan melalui HTTP. API ini mengelola data perpustakaan seperti buku, anggota, pinjaman, dan pengembalian.
-        </p>
-      </div>
-    </div>
-
-    <!-- Hidden Projects -->
-    <div id="moreProjects" class="space-y-6 mt-6 hidden">
-      
-      <!-- Card 3 -->
-      <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 lg:p-6 flex flex-col md:flex-row">
-        <div class="w-full md:w-1/4">
-          <img src="image/DF.png" alt="Djember Fest" class="w-full h-auto rounded-lg">
+            <!-- Card 2 -->
+            <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 flex flex-col items-center">
+                <img src="image/api.png" alt="REST API Library" class="w-full h-auto rounded-lg mb-4">
+                <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">REST API Manajemen Perpustakaan</h2>
+                <p class="mt-2 text-white text-sm md:text-base text-center">
+                    REST API Manajemen Perpustakaan adalah antarmuka pemrograman yang memungkinkan aplikasi berinteraksi dengan sistem perpustakaan melalui HTTP. API ini mengelola data perpustakaan seperti buku, anggota, pinjaman, dan pengembalian.
+                </p>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 flex flex-col items-center">
+                <img src="image/DF.png" alt="Djember Fest" class="w-full h-auto rounded-lg mb-4">
+                <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Website Djember Fest</h2>
+                <p class="mt-2 text-white text-sm md:text-base text-center">
+                    Djember Fest, sebuah website yang dibangun untuk mengekspose Jember, keanekaragamannya dari budaya, destinasi, hingga UMKM. Ini membuat Anda ingin segera mengunjungi Jember!
+                </p>
+            </div>
+    
+            <!-- Hidden Card 1 (Initially Hidden)
+            <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 flex flex-col items-center hidden" id="hiddenCard1">
+                <img src="image/hidden1.png" alt="Hidden Project 1" class="w-full h-auto rounded-lg mb-4">
+                <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Project Tersembunyi 1</h2>
+                <p class="mt-2 text-white text-sm md:text-base text-center">
+                    Deskripsi project tersembunyi yang pertama. Ini adalah contoh project tambahan yang hanya muncul saat tombol "Selengkapnya" ditekan.
+                </p>
+            </div>
+    
+            <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 flex flex-col items-center hidden" id="hiddenCard2">
+                <img src="image/hidden2.png" alt="Hidden Project 2" class="w-full h-auto rounded-lg mb-4">
+                <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Project Tersembunyi 2</h2>
+                <p class="mt-2 text-white text-sm md:text-base text-center">
+                    Deskripsi project tersembunyi yang kedua. Project ini juga hanya akan terlihat setelah tombol "Selengkapnya" ditekan.
+                </p>
+            </div>
+    
+            <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 flex flex-col items-center hidden" id="hiddenCard3">
+                <img src="image/hidden3.png" alt="Hidden Project 3" class="w-full h-auto rounded-lg mb-4">
+                <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Project Tersembunyi 3</h2>
+                <p class="mt-2 text-white text-sm md:text-base text-center">
+                    Ini adalah project tersembunyi yang ketiga, menambah koleksi project Anda dengan tampilan yang rapi dan terstruktur.
+                </p>
+            </div>
+    
         </div>
-        <div class="w-full md:w-3/4 pl-0 md:pl-6 flex flex-col justify-center mt-4 md:mt-0">
-          <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Website Djember Fest</h2>
-          <p class="mt-2 md:mt-4 text-white text-sm md:text-base">
-            Djember Fest, sebuah website yang dibangun untuk mengekspose Jember, keanekaragamannya dari budaya, destinasi, hingga UMKM. Ini membuat Anda ingin segera mengunjungi Jember!
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 4 (Additional Project) -->
-      <!-- <div class="bg-[#023162] rounded-lg shadow-lg p-4 md:p-5 lg:p-6 flex flex-col md:flex-row">
-        <div class="w-full md:w-1/4">
-          <img src="image/example4.png" alt="Project 4" class="w-full h-auto rounded-lg">
-        </div>
-        <div class="w-full md:w-3/4 pl-0 md:pl-6 flex flex-col justify-center mt-4 md:mt-0">
-          <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-white">Project Lainnya</h2>
-          <p class="mt-2 md:mt-4 text-white text-sm md:text-base">
-            Ini adalah project tambahan sebagai contoh lainnya. Menampilkan konten menarik yang memberikan insight baru dan inovatif.
-          </p>
-        </div>
-      </div> -->
-      
-    </div>
-
-    <!-- Button Selengkapnya (Moved Here) -->
-    <div class="flex justify-center">
-      <button id="showMoreBtn" class="bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300">
-        Selengkapnya
-      </button>
-    </div>
-
-  </div>
-</section>
-      
+     -->
+        <!-- <div class="flex justify-center w-full mt-10">
+            <button id="showMoreBtn" class="bg-blue-500 text-white font-semibold px-4 py-2 text-sm md:text-base rounded-lg hover:bg-blue-600 transition-all duration-300">
+                Selengkapnya
+            </button>
+        </div> -->
+    
+    </section>
+    
       
       <!-- <div class="project pt-5 md:pt-10 flex flex-col md:flex-row fade-in">
         <div class="card flex flex-col md:flex-row md:space-x-4">
@@ -369,44 +364,47 @@
       <section id="riwayat" class="keahlian fade-in w-full pt-10 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 pl-5 pr-5 md:pl-20 md:pr-20 items-start">
         <!-- Riwayat Pendidikan -->
         <div class="flex flex-col justify-center fade-in">
-          <div class="bg-[#075FD2] p-6 rounded-lg shadow-lg">
-            <div class="flex justify-between items-center ">
+          <div class="bg-[#023162] p-6 rounded-lg shadow-lg z-10">
+            <div class="flex justify-between items-center">
               <h1 class="text-xl md:text-2xl text-white font-bold">Riwayat Pendidikan</h1>
-              <!-- Default ukuran besar, hanya di mobile yang kecil -->
-              <img src="toga.svg" alt="" class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"> <!-- Ukuran default besar -->
+              <img src="toga.svg" alt="" class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20">
             </div>
-            <div class="h-1 w-[150px] bg-white rounded-full mb-10"></div>
-            <div class="bg-white p-4 rounded-lg shadow-md">
-              <h2 class="text-lg font-bold text-[#333]">SMKN 8 Jember</h2>
-              <p class="text-[#333]">Jurusan Rekayasa Perangkat Lunak</p>
-              <ul class="text-[#333] mt-3 space-y-1">
+            <div class="h-1 w-[150px] bg-[#0094FF] rounded-full mb-10"></div>
+            <div class="bg-[#023162] p-4 rounded-lg border-2 border-[#0094FF]" style="border: 0 0 30px  #0094FF;">
+              <h2 class="text-lg font-bold text-white">
+                SMKN 8 Jember
+              </h2>
+              <p class="text-white">Jurusan Rekayasa Perangkat Lunak</p>
+              <ul class="text-white mt-3 space-y-1">
                 <li>2023-2024 kelas X</li>
                 <li>2024-2025 kelas XI</li>
                 <li>2025-2026 kelas XII</li>
               </ul>
             </div>
+            
           </div>
         </div>
+        
       
         <!-- Pengalaman -->
         <div class="flex flex-col justify-center fade-in">
-          <div class="bg-[#075FD2] p-6 rounded-lg shadow-lg">
+          <div class="bg-[#023162] p-6 rounded-lg shadow-lg">
             <div class="flex justify-between items-center ">
               <h1 class="text-xl md:text-2xl text-white font-bold">Pengalaman</h1>
               <!-- Default ukuran besar, hanya di mobile yang kecil -->
               <img src="tas.svg" alt="" class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"> <!-- Ukuran default besar -->
             </div>
-            <div class="h-1 w-[150px] bg-white rounded-full mb-6"></div>
+            <div class="h-1 w-[150px] bg-[#0094FF] rounded-full mb-6"></div>
             <div class="space-y-4">
-              <div class="bg-white p-4 rounded-lg shadow-md">
-                <h2 class="text-lg font-bold text-[#333]">Industrial class with PT Humma Teknologi Indonesia (HUMMATECH)</h2>
-                <p class="text-[#333]">I joined PT's industrial Class. Humma Teknologi Indonesia (HUMMATECH)</p>
-                <p class="text-[#333] text-xs">February 2024 to December 2024 Malang</p>
+              <div class="bg-[#023162] p-4 rounded-lg border-2 border-[#0094FF]" style="border: 0 0 30px  #0094FF;">
+                <h2 class="text-lg font-bold text-white">Industrial class with PT Humma Teknologi Indonesia (HUMMATECH)</h2>
+                <p class="text-white">I joined PT's industrial Class. Humma Teknologi Indonesia (HUMMATECH)</p>
+                <p class="text-white text-xs">February 2024 to December 2024 Malang</p>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow-md">
-                <h2 class="text-lg font-bold text-[#333]">Teaching Factory ( Jinggolabs ) SMKN 8 Jember</h2>
-                <p class="text-[#333]">I joined Teaching Factory (Tefa) Jinggolabs, Jember, East Java</p>
-                <p class="text-[#333]">2024 - Sekarang</p>
+              <div class="bg-[#023162] p-4 rounded-lg border-2 border-[#0094FF]" style="border: 0 0 30px  #0094FF;">
+                <h2 class="text-lg font-bold text-white">Teaching Factory ( Jinggolabs ) SMKN 8 Jember</h2>
+                <p class="text-white">I joined Teaching Factory (Tefa) Jinggolabs, Jember, East Java</p>
+                <p class="text-white">2024 - Sekarang</p>
               </div>
             </div>
           </div>
