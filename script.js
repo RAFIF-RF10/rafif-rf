@@ -83,10 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Loader
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
-  loader.style.display = "none"; // Hapus loader setelah halaman dimuat
+  const content = document.getElementById("content");
+
+  loader.style.display = "none"; // Sembunyikan loader
+  content.style.display = "block"; // Tampilkan konten website
 });
 
 // Animasi Scroll
