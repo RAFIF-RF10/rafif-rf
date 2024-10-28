@@ -87,13 +87,14 @@ window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   const content = document.getElementById("content");
 
-  loader.classList.add("fade-out"); // Tambahkan kelas fade-out untuk transisi
+  loader.classList.add("fade-out");
 
   setTimeout(() => {
-    loader.style.display = "none"; // Sembunyikan loader setelah transisi selesai
+    loader.style.display = "none"; // Sembunyikan loader setelah animasi
     content.style.display = "block"; // Tampilkan konten website
-  }, 500); // Waktu delay disesuaikan dengan transition di CSS
+  }, 500); // Sesuaikan dengan durasi transisi
 });
+
 
 
 // Animasi Scroll

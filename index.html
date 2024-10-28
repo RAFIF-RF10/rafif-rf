@@ -56,41 +56,52 @@
         }
 /* Style untuk loader */
 /* Loader style */
+/* Gaya untuk layar loading */
 #loader {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: #f3f3f3;
+    background: #f5f9fc; /* Warna latar belakang */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 9999;
 }
 
-/* Animasi lingkaran */
-#loader::before {
-    content: "";
-    width: 60px;
-    height: 60px;
-    border: 6px solid #3498db;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s ease infinite;
+.loader-title {
+    font-size: 80px; /* Ukuran besar untuk teks utama */
+    color: #c7e5f5; /* Warna teks besar */
+    font-weight: bold;
+    margin: 0;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+.loader-subtitle {
+    font-size: 20px; /* Ukuran lebih kecil untuk subtitle */
+    color: #2c3e50; /* Warna teks subtitle */
+    animation: fadeText 1.5s ease infinite; /* Animasi blinking */
+    margin-top: 10px;
 }
+
+/* Animasi blinking untuk subtitle */
+@keyframes fadeText {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+  
 
 
 
     </style>
   </head>
   <body class="bg-[#041631] ">
-    <div id="loader"></div>
-      <div class="spinner"></div>
+    <div id="loader">
+      <h1 class="loader-title">RF</h1>
+      <p class="loader-subtitle">Rafif</p>
   </div>
   
   <nav class="navbar bg-[#92929241] z-50 drop-shadow-lg fixed w-full lg:flex lg:gap-5 lg:items-center lg:p-4 lg:justify-center  fade-in">
