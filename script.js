@@ -88,8 +88,10 @@ window.addEventListener("load", () => {
   const content = document.getElementById("content");
 
   loader.style.display = "none"; // Sembunyikan loader
-  content.style.display = "block"; // Tampilkan konten website
+  content.classList.remove("hidden"); // Hapus kelas hidden
+  content.classList.add("show"); // Tambahkan kelas show untuk efek fade-in
 });
+
 
 // Animasi Scroll
 let lastScrollTop = 0; // Menyimpan posisi scroll terakhir

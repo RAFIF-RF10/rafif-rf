@@ -56,6 +56,7 @@
         }
 /* Style untuk loader */
 /* Loader style */
+/* Style loader */
 #loader {
     position: fixed;
     width: 100%;
@@ -67,7 +68,7 @@
     justify-content: center;
 }
 
-/* Bisa tambahkan animasi loader di sini */
+/* Efek loading animasi */
 #loader::before {
     content: "";
     width: 50px;
@@ -82,6 +83,16 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+/* Efek fade-in untuk konten */
+.hidden {
+    opacity: 0;
+    transition: opacity 1s ease; /* Durasi dan gaya fade-in */
+}
+
+.show {
+    opacity: 1;
 }
 
 
