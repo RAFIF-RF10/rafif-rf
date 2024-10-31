@@ -189,7 +189,7 @@ document.addEventListener('scroll', () => {
 });
 
     const showMoreBtn = document.getElementById('showMoreBtn');
-    const hiddenCards = [document.getElementById('hiddenCard1'), document.getElementById('hiddenCard2'), document.getElementById('hiddenCard3')];
+    const hiddenCards = [document.getElementById('hiddenCard1')];
 
     showMoreBtn.addEventListener('click', () => {
         hiddenCards.forEach(card => {
