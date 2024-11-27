@@ -3,17 +3,23 @@
       content,
       images = [];
     if (type === "sertifikat") {
-      title = "Sertifikat Web Programming";
+      title = "Sertifikat Web Programming (EPIM)";
       content =
-        "Berikut adalah sertifikat yang telah saya peroleh:\n1. Sertifikat Juara Harapan 3 Lomba Tingkat Nasional Web Programming di Politeknik Negeri Jember.";
+        "Berikut adalah sertifikat yang telah saya peroleh:\n Sertifikat Juara Harapan 3 Lomba Tingkat Nasional Web Programming di Politeknik Negeri Jember.";
       images = [
         "image/Tim Eskalaber piagam.jpg",
         "image/Tim Eskalaber piagam-nama.jpg",
       ];
     } else if (type === "sertifikat2") {
-      title = "Sertifikat Saya";
-      content = "Sertifikat Kominfo";
-      images = ["image/Sertifikat kominfo_page-0001.jpg"];
+      title = "Sertifikat Kominfo";
+      content = "Sertifikat Kominfo seminar digital";
+      images = ["image/Sertifikat kominfo_page-0001.jpg"
+
+      ];
+    } else if (type === "sertifikat3") {
+      title = "Sertifikat Film Moderasi Beragama (PAISLOVE JATIM)";
+      content = "Sertifikat  Film Moderasi Beragama Tingkat Provinsi Jawa Timur ";
+      images = ["image/sertifikat-film.jpg"];
     }
 
     // Set judul dan konten modal
