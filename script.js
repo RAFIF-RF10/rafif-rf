@@ -144,25 +144,33 @@ window.addEventListener("scroll", () => {
   menu.classList.toggle('hidden');
 });
 function typeText(elementId, text, speed = 100) {
-    try{
-        const element = document.getElementById(elementId);
-        let index = 0;
-      
-        function type() {
-          if (index < text.length) {
-            element.innerHTML += text.charAt(index);
-            index++;
-            setTimeout(type, speed);
-          }
-        }
-        type();
-    } catch(e) {
-        console.log(e)
+  try {
+    const element = document.getElementById(elementId);
+    let index = 0;
+
+    // Membuat elemen cursor
+    const cursor = document.createElement('span');
+    cursor.classList.add('cursor');
+    element.appendChild(cursor); // Menambahkan cursor di akhir konten
+
+    function type() {
+      if (index < text.length) {
+        element.innerHTML = text.substring(0, index + 1) + cursor.outerHTML; // Menambahkan teks dan cursor
+        index++;
+        setTimeout(type, speed);
+      } else {
+        cursor.style.animation = 'none'; // Menghentikan animasi blinking setelah selesai mengetik
+      }
     }
+    type();
+  } catch (e) {
+    console.log(e);
+  }
 }
 
-typeText('nama', 'Asyam Rafif Aubin Fawwaz', 150);
-typeText('sub', 'Beginner Web Development', 100);
+// Mengaktifkan fungsi ketik untuk elemen-elemen
+typeText('nama', 'Asyam Rafif Aubin Fawwaz', 150);
+typeText('sub', 'Beginner Web Development', 150);
 
 
 window.addEventListener('scroll', function() {

@@ -18,6 +18,22 @@
       body{
         overflow-x: hidden;
       }
+      /* Efek cursor yang berkedip */
+.cursor {
+  display: inline-block;
+  width: 4px;
+  height: 30px;
+  background-color: white;
+  margin-left: 2px;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
   /* Jika perlu menambahkan beberapa gaya tambahan */
   .skill-card {
             transition: transform 0.3s ease-in-out;
@@ -151,7 +167,7 @@
       </div>
   
       <!-- Image Section -->
-      <div class="w-full sm:w-3/4 md:w-2/4 lg:max-w-sm rounded-[60%] overflow-hidden bg-[#2b31a5]">
+      <div class="w-full sm:w-3/4 md:w-2/4 lg:max-w-sm rounded-xl overflow-hidden bg-gradient-to-t from-[#363ed2] via-25% via-[#363ed2] to-65% ">
         <img class="w-full h-auto object-cover" src="image/profil.png" alt="Profil Image">
       </div>
   
@@ -201,17 +217,19 @@
       </div>
       
       <!-- Container sertifikat dengan Flexbox -->
-      <div class="flex flex-col sm:flex-row justify-center gap-10">
-        <div class=" bg-[#222782] p-4 max-w-sm w-full rounded overflow-hidden shadow-lg cursor-pointer transform transition duration-500 hover:scale-105" onclick="showInfo('sertifikat')">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+        <!-- Card 1 -->
+        <div class="bg-[#222782] p-4 max-w-sm w-full rounded overflow-hidden shadow-lg cursor-pointer transform transition duration-500 hover:scale-105" onclick="showInfo('sertifikat')">
           <img class="w-full h-48 object-cover" src="image/Tim Eskalaber piagam.jpg" alt="Gambar Sertifikat">
           <div class="px-6 py-4">
-            <div class="font-bold text-white text-xl mb-2">Sertifikat Web Programming (EPIM)  </div>
+            <div class="font-bold text-white text-xl mb-2">Sertifikat Web Programming (EPIM)</div>
             <p class="text-white text-base">
               Klik untuk melihat sertifikat saya.
             </p>
           </div>
         </div>
-    
+      
+        <!-- Card 2 -->
         <div class="bg-[#222782] p-4 max-w-sm w-full rounded overflow-hidden shadow-lg cursor-pointer transform transition duration-500 hover:scale-105" onclick="showInfo('sertifikat2')">
           <img class="w-full h-48 object-cover" src="image/Sertifikat kominfo_page-0001.jpg" alt="Gambar Sertifikat">
           <div class="px-6 py-4">
@@ -221,6 +239,8 @@
             </p>
           </div>
         </div>
+      
+        <!-- Card 3 -->
         <div class="bg-[#222782] p-4 max-w-sm w-full rounded overflow-hidden shadow-lg cursor-pointer transform transition duration-500 hover:scale-105" onclick="showInfo('sertifikat3')">
           <img class="w-full h-48 object-cover" src="image/sertifikat-film.jpg" alt="Gambar Sertifikat">
           <div class="px-6 py-4">
@@ -231,7 +251,7 @@
           </div>
         </div>
       </div>
-    </div>
+      
     
     <div class="flex justify-center items-center w-full">
       <div id="infoModal" class="hidden fixed inset-0 bg-gray-800 flex-col bg-opacity-75 flex items-center justify-center z-50">
@@ -249,113 +269,173 @@
       </div>
     </div>
     
-    <div class="flex flex-col mt-10 md:flex-row justify-center gap-10 fade-in">
+    <div class="flex flex-col mt-10 md:flex-col justify-center gap-10 fade-in">
       <!-- Keahlian Section -->
-      <div class="flex-col pl-4 pb-10 w-full md:w-1/2 flex justify-start fade-in ">
-          <h1 class="text-3xl md:text-5xl pt-[20px] text-white mb-10 font-slope">Keahlian</h1>
-          <div class="h-1 w-60 rounded-sm bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-20"></div>
+      <div class="flex-col pl-4 pb-10 w-full md:w-full flex justify-center fade-in ">
+          <h1 class="text-3xl md:text-5xl pt-[20px] text-white text-center mb-10 font-slope">Keahlian</h1>
+          <div class="h-1 w-60 rounded-sm mx-auto  bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-20"></div>
           <div class="grid gap-5">
               <!-- Skill Item 1 -->
              
               
-                  <div class="w-full h-auto  flex flex-col items-center">
-                      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 max-w-screen-lg">
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="md:text-6xl text-3xl animate-pulse" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(227, 79, 38);"><path d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"></path></svg>
-                              <h3 class="mt-4 text-lg text-white font-semibold">HTML</h3>
-                          </div>
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="md:text-6xl text-3xl animate-pulse" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(21, 114, 182);"><path d="M0 32l34.9 395.8L192 480l157.1-52.2L384 32H0zm313.1 80l-4.8 47.3L193 208.6l-.3.1h111.5l-12.8 146.6-98.2 28.7-98.8-29.2-6.4-73.9h48.9l3.2 38.3 52.6 13.3 54.7-15.4 3.7-61.6-166.3-.5v-.1l-.2.1-3.6-46.3L193.1 162l6.5-2.7H76.7L70.9 112h242.2z"></path></svg>
-                              <h3 class="mt-4 text-lg text-white font-semibold">CSS</h3>
-                          </div>
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="md:text-6xl text-3xl animate-pulse" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(247, 223, 30);"><path d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"></path></svg>
-                              <h3 class="mt-4 text-lg text-white font-semibold">JavaScript</h3>
-                          </div>
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" class="md:text-6xl text-3xl animate-pulse" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(56, 178, 172);"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"></path></svg>
-                              <h3 class="mt-4 text-lg text-white font-semibold">Tailwind CSS</h3>
-                          </div>
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                              <i class="fab fa-git-alt text-6xl" style="color: #F05032;"></i>
-                              <h3 class="mt-4 text-lg text-white font-semibold">Git</h3>
-                          </div>
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="md:text-6xl text-3xl animate-pulse" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(255, 45, 32);"><path d="M504.4,115.83a5.72,5.72,0,0,0-.28-.68,8.52,8.52,0,0,0-.53-1.25,6,6,0,0,0-.54-.71,9.36,9.36,0,0,0-.72-.94c-.23-.22-.52-.4-.77-.6a8.84,8.84,0,0,0-.9-.68L404.4,55.55a8,8,0,0,0-8,0L300.12,111h0a8.07,8.07,0,0,0-.88.69,7.68,7.68,0,0,0-.78.6,8.23,8.23,0,0,0-.72.93c-.17.24-.39.45-.54.71a9.7,9.7,0,0,0-.52,1.25c-.08.23-.21.44-.28.68a8.08,8.08,0,0,0-.28,2.08V223.18l-80.22,46.19V63.44a7.8,7.8,0,0,0-.28-2.09c-.06-.24-.2-.45-.28-.68a8.35,8.35,0,0,0-.52-1.24c-.14-.26-.37-.47-.54-.72a9.36,9.36,0,0,0-.72-.94,9.46,9.46,0,0,0-.78-.6,9.8,9.8,0,0,0-.88-.68h0L115.61,1.07a8,8,0,0,0-8,0L11.34,56.49h0a6.52,6.52,0,0,0-.88.69,7.81,7.81,0,0,0-.79.6,8.15,8.15,0,0,0-.71.93c-.18.25-.4.46-.55.72a7.88,7.88,0,0,0-.51,1.24,6.46,6.46,0,0,0-.29.67,8.18,8.18,0,0,0-.28,2.1v329.7a8,8,0,0,0,4,6.95l192.5,110.84a8.83,8.83,0,0,0,1.33.54c.21.08.41.2.63.26a7.92,7.92,0,0,0,4.1,0c.2-.05.37-.16.55-.22a8.6,8.6,0,0,0,1.4-.58L404.4,400.09a8,8,0,0,0,4-6.95V287.88l92.24-53.11a8,8,0,0,0,4-7V117.92A8.63,8.63,0,0,0,504.4,115.83ZM111.6,17.28h0l80.19,46.15-80.2,46.18L31.41,63.44Zm88.25,60V278.6l-46.53,26.79-33.69,19.4V123.5l46.53-26.79Zm0,412.78L23.37,388.5V77.32L57.06,96.7l46.52,26.8V338.68a6.94,6.94,0,0,0,.12.9,8,8,0,0,0,.16,1.18h0a5.92,5.92,0,0,0,.38.9,6.38,6.38,0,0,0,.42,1v0a8.54,8.54,0,0,0,.6.78,7.62,7.62,0,0,0,.66.84l0,0c.23.22.52.38.77.58a8.93,8.93,0,0,0,.86.66l0,0,0,0,92.19,52.18Zm8-106.17-80.06-45.32,84.09-48.41,92.26-53.11,80.13,46.13-58.8,33.56Zm184.52,4.57L215.88,490.11V397.8L346.6,323.2l45.77-26.15Zm0-119.13L358.68,250l-46.53-26.79V131.79l33.69,19.4L392.37,178Zm8-105.28-80.2-46.17,80.2-46.16,80.18,46.15Zm8,105.28V178L455,151.19l33.68-19.4v91.39h0Z"></path></svg>  
-                            <h3 class="mt-4 text-lg text-white font-semibold">Laravel</h3>
-                          </div>
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128" id="php">
-                              <defs>
-                                <path id="a" d="M64.026 96.076c33.676 0 60.976-14.361 60.976-32.076s-27.3-32.075-60.976-32.075-60.975 14.36-60.975 32.075 27.3 32.076 60.975 32.076"></path>
-                              </defs>
-                              <defs>
-                                <path id="c" d="M2.998 31.924h122.004v64.1h-122.004z"></path>
-                              </defs>
-                              <clipPath id="b">
-                                <use xlink:href="#a" overflow="visible"></use>
-                              </clipPath>
-                              <clipPath id="d" clip-path="url(#b)">
-                                <use xlink:href="#c" overflow="visible"></use>
-                              </clipPath>
-                              <g clip-path="url(#d)">
-                                <defs>
-                                  <path id="e" d="M2.998 31.924h122.004v64.1h-122.004z"></path>
-                                </defs>
-                                <clipPath id="f">
-                                  <use xlink:href="#e" overflow="visible"></use>
-                                </clipPath>
-                                <g clip-path="url(#f)"></g>
-                              </g>
-                              <path fill="#6181B6" d="M64.026 93.694c32.36 0 58.594-13.295 58.594-29.694s-26.233-29.694-58.594-29.694-58.593 13.295-58.593 29.694 26.233 29.694 58.593 29.694z"></path>
-                              <path fill="#fff" d="M75.896 73.598l2.906-14.958c.656-3.377.11-5.896-1.62-7.486-1.677-1.54-4.523-2.288-8.703-2.288h-5.033l1.44-7.412c.055-.279-.02-.568-.2-.788-.181-.219-.45-.347-.735-.347h-6.947c-.456 0-.848.323-.936.771l-3.086 15.881c-.28-1.787-.973-3.323-2.079-4.591-2.038-2.332-5.261-3.515-9.58-3.515h-13.467c-.456 0-.848.322-.935.771l-6.247 32.144c-.055.278.02.568.2.787.181.22.451.347.735.347h7.002c.456 0 .849-.323.936-.771l1.511-7.775h5.213c2.735 0 5.032-.296 6.827-.881 1.834-.596 3.522-1.607 5.011-3.001 1.202-1.104 2.196-2.341 2.96-3.676l-1.248 6.424c-.054.278.02.567.2.787s.451.347.735.347h6.947c.456 0 .848-.323.936-.771l3.429-17.645h4.767c2.031 0 2.626.404 2.787.578.147.159.452.718.11 2.48l-2.764 14.223c-.055.278.019.567.2.787.181.22.45.347.735.347h7.058c.455.001.848-.322.935-.769zm-32.208-12.36c-.437 2.242-1.259 3.842-2.444 4.755-1.205.927-3.132 1.397-5.727 1.397h-3.104l2.244-11.548h4.012c2.948 0 4.136.63 4.612 1.158.662.734.802 2.199.407 4.238zM105.604 52.38c-2.038-2.332-5.261-3.515-9.581-3.515h-13.464c-.456 0-.849.322-.936.771l-6.248 32.144c-.054.278.02.568.201.787.181.22.45.347.734.347h7.003c.455 0 .848-.323.935-.771l1.512-7.775h5.212c2.735 0 5.033-.296 6.827-.881 1.835-.596 3.522-1.607 5.011-3.001 1.241-1.141 2.264-2.421 3.037-3.806.772-1.383 1.328-2.927 1.65-4.588.797-4.094.16-7.363-1.893-9.712zm-7.262 8.858c-.437 2.242-1.259 3.842-2.444 4.755-1.204.927-3.131 1.397-5.727 1.397h-3.104l2.245-11.548h4.012c2.948 0 4.136.63 4.612 1.158.662.734.801 2.199.406 4.238z"></path>
-                              <path fill="#000004" d="M38.67 54.89c2.66 0 4.434.491 5.32 1.474.885.982 1.097 2.668.633 5.057-.484 2.488-1.416 4.264-2.798 5.328-1.382 1.063-3.485 1.595-6.308 1.595h-4.26l2.614-13.453h4.799v-.001zm-17.061 27.072h7.002l1.661-8.546h5.998c2.646 0 4.823-.277 6.532-.834 1.709-.556 3.263-1.488 4.661-2.797 1.173-1.078 2.122-2.268 2.85-3.569.727-1.3 1.242-2.734 1.547-4.305.741-3.811.182-6.778-1.676-8.904s-4.812-3.189-8.862-3.189h-13.466l-6.247 32.144zM57.003 41.271h6.947l-1.661 8.546h6.189c3.894 0 6.58.68 8.059 2.037 1.479 1.359 1.921 3.561 1.33 6.603l-2.906 14.959h-7.058l2.763-14.223c.314-1.618.199-2.722-.347-3.311-.546-.587-1.708-.882-3.485-.882h-5.553l-3.578 18.416h-6.947l6.247-32.145zM93.324 54.89c2.66 0 4.434.491 5.319 1.474.887.982 1.097 2.668.634 5.057-.484 2.488-1.417 4.264-2.799 5.328-1.382 1.063-3.484 1.595-6.308 1.595h-4.259l2.614-13.453h4.799v-.001zm-17.06 27.072h7.002l1.661-8.546h5.997c2.646 0 4.823-.277 6.532-.834 1.71-.556 3.264-1.488 4.661-2.797 1.174-1.078 2.123-2.268 2.851-3.569.726-1.3 1.242-2.734 1.547-4.305.74-3.811.182-6.778-1.676-8.904s-4.812-3.189-8.863-3.189h-13.465l-6.247 32.144z"></path>
-                            </svg>
-                            <h3 class="mt-4 text-lg text-white font-semibold">PHP</h3>
-                          </div>
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" class="md:text-6xl text-3xl animate-pulse" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(43, 87, 154);"><path d="M23.004 1.5q.41 0 .703.293t.293.703v19.008q0 .41-.293.703t-.703.293H6.996q-.41 0-.703-.293T6 21.504V18H.996q-.41 0-.703-.293T0 17.004V6.996q0-.41.293-.703T.996 6H6V2.496q0-.41.293-.703t.703-.293zM6.035 11.203l1.442 4.735h1.64l1.57-7.876H9.036l-.937 4.653-1.325-4.5H5.38l-1.406 4.523-.938-4.675H1.312l1.57 7.874h1.641zM22.5 21v-3h-15v3zm0-4.5v-3.75H12v3.75zm0-5.25V7.5H12v3.75zm0-5.25V3h-15v3Z"></path></svg>
-                            <h3 class="mt-4 text-lg text-white font-semibold"> Word</h3>
-                          </div>
-                          <div class="skill-card bg-gray-800 p-6 rounded-lg text-magnolia flex flex-col items-center justify-center">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="md:text-6xl text-3xl animate-pulse" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(242, 78, 30);"><path d="M14 95.7924C14 42.8877 56.8878 0 109.793 0H274.161C327.066 0 369.954 42.8877 369.954 95.7924C369.954 129.292 352.758 158.776 326.711 175.897C352.758 193.019 369.954 222.502 369.954 256.002C369.954 308.907 327.066 351.795 274.161 351.795H272.081C247.279 351.795 224.678 342.369 207.666 326.904V415.167C207.666 468.777 163.657 512 110.309 512C57.5361 512 14 469.243 14 416.207C14 382.709 31.1945 353.227 57.2392 336.105C31.1945 318.983 14 289.5 14 256.002C14 222.502 31.196 193.019 57.2425 175.897C31.196 158.776 14 129.292 14 95.7924ZM176.288 191.587H109.793C74.2172 191.587 45.3778 220.427 45.3778 256.002C45.3778 291.44 73.9948 320.194 109.381 320.416C109.518 320.415 109.655 320.415 109.793 320.415H176.288V191.587ZM207.666 256.002C207.666 291.577 236.505 320.417 272.081 320.417H274.161C309.737 320.417 338.576 291.577 338.576 256.002C338.576 220.427 309.737 191.587 274.161 191.587H272.081C236.505 191.587 207.666 220.427 207.666 256.002ZM109.793 351.795C109.655 351.795 109.518 351.794 109.381 351.794C73.9948 352.015 45.3778 380.769 45.3778 416.207C45.3778 451.652 74.6025 480.622 110.309 480.622C146.591 480.622 176.288 451.186 176.288 415.167V351.795H109.793ZM109.793 31.3778C74.2172 31.3778 45.3778 60.2173 45.3778 95.7924C45.3778 131.368 74.2172 160.207 109.793 160.207H176.288V31.3778H109.793ZM207.666 160.207H274.161C309.737 160.207 338.576 131.368 338.576 95.7924C338.576 60.2173 309.737 31.3778 274.161 31.3778H207.666V160.207Z"></path></svg>
-                            <h3 class="mt-4 text-lg text-white font-semibold">Figma</h3>
-                          </div>
-                      </div>
+              <div class="w-full h-auto flex flex-col items-center">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                  <!-- Card 1: Figma -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">Figma</h3>
+                      <p class="text-xs text-gray-400">Design Tool</p>
+                    </div>
                   </div>
-
+              
+                  <!-- Card 2: MySQL -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" alt="MySQL Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">MySQL</h3>
+                      <p class="text-xs text-gray-400">Databases</p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 3: Vite -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="https://vitejs.dev/logo.svg" alt="Vite Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">Vite</h3>
+                      <p class="text-xs text-gray-400">Service </p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 4: HTML -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="html.svg" alt="HTML Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">HTML</h3>
+                      <p class="text-xs text-gray-400">Tool</p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 5: CSS -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="css.svg" alt="CSS Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">CSS</h3>
+                      <p class="text-xs text-gray-400">User Interface </p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 6: Laravel -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="laravel.svg" alt="Laravel Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">Laravel</h3>
+                      <p class="text-xs text-gray-400">PHP Framework</p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 7: TailwindCSS -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="tailwindcss.svg" alt="TailwindCSS Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">TailwindCSS</h3>
+                      <p class="text-xs text-gray-400">CSS Framework</p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 8: JavaScript -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="javascript.svg" alt="JavaScript Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">JavaScript</h3>
+                      <p class="text-xs text-gray-400">Interaction</p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 9: PHP -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="php.svg" alt="PHP Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">PHP</h3>
+                      <p class="text-xs text-gray-400">Backend </p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 10: CodeIgniter -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="CI.svg" alt="CodeIgniter Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">CodeIgniter 3</h3>
+                      <p class="text-xs text-gray-400">PHP Framework</p>
+                    </div>
+                  </div>
+              
+                  <!-- Card 11: MS Word -->
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="word.svg" alt="MS Word Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">MS Word</h3>
+                      <p class="text-xs text-gray-400"> Microsoft</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
 
           </div>
       </div>
   
       <!-- Penghargaan Section -->
-      <div class="w-full md:w-1/2 pl-4 md:pl-10 flex flex-col justify-start fade-in">
-          <h1 class="text-3xl md:text-5xl text-white mb-10 pt-5 font-slope">Penghargaan</h1>
-          <div class="h-1 w-8/12 rounded-sm bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-20"></div>
-          <div class="relative fade-in">
-              <!-- Timeline Item 1 -->
-              <div class="card fade-in mb-8 flex items-center p-4 bg-gray-800 rounded-lg shadow-md w-full scale-100 hover:scale-105 duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="#075FD2" class="w-10 h-10 mr-4" viewBox="0 0 512 512">
-                      <path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0L133.9 0c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0L487.4 0C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z" />
-                  </svg>
-                  <div>
-                      <h3 class="text-lg text-white font-semibold">3rd runner up at EPIM TI 2024 <br>  Politeknik Negeri Jember</h3>
-                      <p class="text-white">2024</p>
-                  </div>
-              </div>
-              <!-- Timeline Item 2 -->
-              <div class="card mb-8 flex items-center p-4 bg-gray-800 rounded-lg shadow-md w-full scale-100 hover:scale-105 duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="#075FD2" class="w-20   h-10 mr-4" viewBox="0 0 512 512">
-                      <path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0L133.9 0c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0L487.4 0C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z" />
-                  </svg>
-                  <div>
-                      <h3 class="text-lg text-white font-semibold">2nd place in short film at the Ministry of Religion of East Java Province <br>  Kementrian Agama</h3>
-                      <p class="text-white">2024</p>
-                  </div>
-              </div>
+      <div class="w-full mb-10  md:pl-10 flex flex-col justify-start fade-in">
+        <h1 class="text-3xl md:text-5xl text-white text-center mb-10 pt-5 font-slope">Penghargaan</h1>
+        <div class="h-1 w-80 md:w-96 lg:w-96 mx-auto rounded-sm  bg-[#075FD2] opacity-0 transform scale-y-0 origin-center transition-all duration-1000 animate-on-scroll mb-20"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Timeline Item 1 -->
+          <div class="card fade-in flex items-center p-4 bg-gray-800 rounded-lg shadow-md scale-100 hover:scale-105 duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#075FD2" class="w-10 h-10 mr-4" viewBox="0 0 512 512">
+              <path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0L133.9 0c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0L487.4 0C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z" />
+            </svg>
+            <div>
+              <h3 class="text-lg text-white font-semibold">3rd runner up at EPIM TI 2024 <br> Politeknik Negeri Jember</h3>
+              <p class="text-white">2024</p>
+            </div>
           </div>
+          <!-- Timeline Item 2 -->
+          <div class="card flex items-center p-4 bg-gray-800 rounded-lg shadow-md scale-100 hover:scale-105 duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#075FD2" class="w-10 h-10 mr-4" viewBox="0 0 512 512">
+              <path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0L133.9 0c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0L487.4 0C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z" />
+            </svg>
+            <div>
+              <h3 class="text-lg text-white font-semibold">2nd place in short film at the Ministry of Religion of East Java Province <br> Kementrian Agama</h3>
+              <p class="text-white">2024</p>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
+      
   
       </section>
       
@@ -366,7 +446,7 @@
         </div>
     
         <!-- Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
         
           <!-- Card 1 -->
           <div class="bg-[#222782] rounded-lg shadow-lg p-4 md:p-5 flex flex-col items-center h-full">
@@ -493,7 +573,7 @@
         </div>
       </div> -->
       
-      <section id="riwayat" class="keahlian fade-in w-full pt-10 md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 pl-5 pr-5 md:pl-20 md:pr-20 items-start">
+      <section id="riwayat" class="keahlian fade-in w-full pt-10 md:pt-20 grid lg:grid-cols-2 md:grid-cols-1 gap-10 md:gap-20 pl-5 pr-5 md:pl-20 md:pr-20 items-start">
         <!-- Riwayat Pendidikan -->
         <div class="flex flex-col justify-center fade-in">
           <div class="bg-gray-800 p-6 rounded-lg shadow-lg z-10">
@@ -527,7 +607,7 @@
               <img src="tas.svg" alt="" class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"> <!-- Ukuran default besar -->
             </div>
             <div class="h-1 w-[150px] bg-white rounded-full mb-6"></div>
-            <div class="space-y-4">
+            <div class="space-y-4  ">
               <div class="bg-gray-800 p-4 rounded-lg border-2 border-[#ffff]" style="border: 0 0 30px  #0094FF;">
                 <h2 class="text-lg font-bold text-white">Industrial class with PT Humma Teknologi Indonesia (HUMMATECH)</h2>
                 <p class="text-white">I joined PT's industrial Class. Humma Teknologi Indonesia (HUMMATECH)</p>
