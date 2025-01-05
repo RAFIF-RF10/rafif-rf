@@ -19,7 +19,7 @@
     } else if (type === "sertifikat3") {
       title = "Sertifikat Film Moderasi Beragama (PAISLOVE JATIM)";
       content = "Berikut adalah sertifikat yang telah saya peroleh:\n Sertifikat Juara 2 Tingkat Provinsi Jawa Timur.";
-      images = ["image/sertifikat-film.jpg"];
+      images = ["image/sertifikat-sejati.jpg"];
     }
 
     // Set judul dan konten modal
