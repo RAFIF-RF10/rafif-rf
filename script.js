@@ -64,7 +64,11 @@
     });
   });
 
-
+  window.addEventListener("load", function () {
+    setTimeout(() => {
+        document.getElementById("loader").classList.add("fade-out");
+    }, 1000); // Loader hilang setelah 1 detik
+});
 // Animasi Fade In
 document.addEventListener("DOMContentLoaded", () => {
   const fadeElements = document.querySelectorAll(".fade-in");
@@ -75,11 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
     threshold: 0.1, // 10% dari elemen harus terlihat
   };
 
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        // Tambahkan class animasi saat elemen terlihat
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // Hentikan pengamatan setelah animasi
+      } else {
+        // Hapus class animasi saat elemen keluar dari viewport
+        entry.target.classList.remove("visible");
       }
     });
   }, options);

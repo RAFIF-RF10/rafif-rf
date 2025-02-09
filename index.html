@@ -70,34 +70,61 @@
             opacity: 0; /* Mulai dengan opasitas 0 */
             transition: opacity 0.5s ease; /* Transisi untuk efek halus */
         }
-/* Style untuk loader */
-/* Loader style */
-/* Gaya untuk layar loading */
-#loader {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #f5f9fc; /* Warna latar belakang */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #10161f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
 
-.loader-title {
-    font-size: 80px; /* Ukuran besar untuk teks utama */
-    color: #c7e5f5; /* Warna teks besar */
-    font-weight: bold;
-    margin: 0;
-}
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-size: 80px;
+            font-weight: bold;
+        }
 
-.loader-subtitle {
-    font-size: 20px; /* Ukuran lebih kecil untuk subtitle */
-    color: #93c2f2; /* Warna teks subtitle */
-    animation: fadeText 1.5s ease infinite; /* Animasi blinking */
-    margin-top: 10px;
-}
+        .loader-letter {
+            opacity: 0;
+            position: absolute;
+            animation: fadeInMove 1s ease-in-out forwards;
+        }
+
+        .loader-letter.R {
+            color: #ff4c4c;
+            left: -100px;
+            animation-delay: 0.3s;
+        }
+
+        .loader-letter.F {
+            color: #4cafff;
+            right: -100px;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInMove {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
 
 /* Animasi blinking untuk subtitle */
 @keyframes fadeText {
@@ -116,8 +143,11 @@
   </head>
   <body class="bg-[#10161f] ">
     <div id="loader">
-      <h1 class="loader-title">RF</h1>
-      <p class="loader-subtitle">Rafif....</p>
+      <div class="loader-container">
+        <span class="loader-letter R">R</span>
+        <span class="loader-letter F">F</span>
+    </div>
+    <p class="text-[#93c2f2] text-lg mt-2">Rafif....</p>
   </div>
   
   <nav class="navbar bg-[#92929241] z-50 drop-shadow-lg fixed w-full lg:flex lg:gap-5 lg:items-center lg:p-4 lg:justify-center  fade-in">
@@ -398,6 +428,24 @@
                     <div class="flex-1">
                       <h3 class="text-sm font-semibold">MS Word</h3>
                       <p class="text-xs text-gray-400"> Microsoft</p>
+                    </div>
+                  </div>
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-8 h-8" src="image/angular.png" alt="MS Word Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">Angular</h3>
+                      <p class="text-xs text-gray-400"> TypeScript Framework </p>
+                    </div>
+                  </div>
+                  <div class="skill-card bg-gray-800 p-6 rounded-lg flex items-center gap-4 text-white shadow-md">
+                    <figure class="w-12 h-12 p-2 flex-shrink-0 overflow-hidden transition-colors rounded-lg bg-zinc-700/50 group-hover:bg-zinc-900 flex justify-center items-center">
+                      <img class="w-18 h-8" src="image/ionic.png" alt="MS Word Logo">
+                    </figure>
+                    <div class="flex-1">
+                      <h3 class="text-sm font-semibold">Ionic</h3>
+                      <p class="text-xs text-gray-400"> Hybrid Mobile Framework</p>
                     </div>
                   </div>
                 </div>
