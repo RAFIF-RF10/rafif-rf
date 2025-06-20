@@ -1,50 +1,90 @@
-  function showInfo(type) {
-    var title,
-      content,
-      images = [];
-    if (type === "sertifikat") {
-      title = "Sertifikat Web Programming (EPIM)";
-      content =
-        "Berikut adalah sertifikat yang telah saya peroleh:\n Sertifikat Juara Harapan 3 Lomba Tingkat Nasional Web Programming di Politeknik Negeri Jember.";
-      images = [
-        "image/Tim Eskalaber piagam.jpg",
-        "image/Tim Eskalaber piagam-nama.jpg",
-      ];
-    } else if (type === "sertifikat2") {
-      title = "Sertifikat Kominfo";
-      content = "Sertifikat Kominfo seminar digital";
-      images = ["image/Sertifikat kominfo_page-0001.jpg"
+function showInfo(type) {
+    var title, content, images = [];
 
-      ];
+    if (type === "sertifikat") {
+        title = "Sertifikat Web Programming (EPIM)";
+        content = "Berikut adalah sertifikat yang telah saya peroleh: Sertifikat Juara Harapan 3 Lomba Tingkat Nasional Web Programming di Politeknik Negeri Jember.";
+        images = [
+            "image/Tim Eskalaber B sertifikat.jpg",
+            "image/Tim Eskalaber piagam-nama.jpg"
+        ];
+    } else if (type === "sertifikat2") {
+        title = "Sertifikat Kominfo";
+        content = "Sertifikat Kominfo seminar digital yang menunjukkan partisipasi aktif dalam pengembangan kompetensi digital.";
+        images = ["image/Sertifikat kominfo_page-0001.jpg"];
     } else if (type === "sertifikat3") {
-      title = "Sertifikat Film Moderasi Beragama (PAISLOVE JATIM)";
-      content = "Berikut adalah sertifikat yang telah saya peroleh:\n Sertifikat Juara 2 Tingkat Provinsi Jawa Timur.";
-      images = ["image/sertifikat-sejati.jpg"];
+        title = "Sertifikat Film Moderasi Beragama (PAISLOVE JATIM)";
+        content = "Berikut adalah sertifikat yang telah saya peroleh: Sertifikat Juara 2 Tingkat Provinsi Jawa Timur dalam kompetisi film moderasi beragama.";
+        images = ["image/sertifikat-sejati.jpg"];
+    } else if (type === "sertifikat4") {
+        title = "Piagam Lomba Desain UI/UX";
+        content = "Berikut adalah sertifikat yang telah saya peroleh: Sertifikat Juara 3 dalam kompetisi desain UI/UX yang menunjukkan kemampuan dalam merancang antarmuka pengguna.";
+        images = ["image/hummatect.jpg"];
     }
 
-    // Set judul dan konten modal
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalContent").innerText = content;
 
-    // Kosongkan gambar sebelumnya
     var modalImagesContainer = document.getElementById("modalImages");
     modalImagesContainer.innerHTML = "";
 
-    // Tambahkan gambar baru dengan gap
+    if (images.length === 1) {
+        modalImagesContainer.className = "flex justify-center mb-6";
+    } else {
+        modalImagesContainer.className = "grid grid-cols-1 md:grid-cols-2 gap-6 mb-6";
+    }
+
     images.forEach(function (imageUrl) {
-      var imgElement = document.createElement("img");
-      imgElement.src = imageUrl;
-      imgElement.classList.add("w-80", "h-48", "rounded-lg", "object-cover"); // Sesuaikan ukuran gambar
-      modalImagesContainer.appendChild(imgElement);
+        var imgContainer = document.createElement("div");
+        imgContainer.classList.add("group", "relative", "overflow-hidden", "rounded-xl", "shadow-lg", "hover:shadow-2xl", "transition-all", "duration-300");
+        if (images.length === 1) {
+            imgContainer.classList.add("max-w-md");
+        }
+
+        var imgElement = document.createElement("img");
+        imgElement.src = imageUrl;
+        imgElement.classList.add("w-full", "h-64", "object-cover", "transition-transform", "duration-300", "group-hover:scale-105");
+        imgElement.alt = "Certificate Image";
+
+        var overlay = document.createElement("div");
+        overlay.classList.add("absolute", "inset-0", "bg-gradient-to-t", "from-black/20", "to-transparent", "opacity-0", "group-hover:opacity-100", "transition-opacity", "duration-300");
+
+        imgContainer.appendChild(imgElement);
+        imgContainer.appendChild(overlay);
+        modalImagesContainer.appendChild(imgContainer);
     });
 
-    // Tampilkan modal
-    document.getElementById("infoModal").classList.remove("hidden");
-  }
+    var modal = document.getElementById("infoModal");
+    var modalContainer = document.getElementById("modalContainer");
 
-  function closeModal() {
-    document.getElementById("infoModal").classList.add("hidden");
-  }
+    modal.classList.remove("hidden");
+    modalContainer.classList.add("modal-enter");
+
+    setTimeout(() => {
+        modalContainer.classList.remove("modal-enter");
+    }, 300);
+}
+
+        function closeModal() {
+            var modal = document.getElementById("infoModal");
+            var modalContainer = document.getElementById("modalContainer");
+            
+            // Add exit animation
+            modalContainer.classList.add("modal-exit");
+            
+            // Hide modal after animation completes
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                modalContainer.classList.remove("modal-exit");
+            }, 300);
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
 
   // Modal Form
   document.addEventListener("DOMContentLoaded", function () {
@@ -53,13 +93,12 @@
       document.getElementById("contactForm").classList.add("hidden");
     }
 
-    // Event listener untuk button
     document.getElementById("contactBtn").addEventListener("click", function () {
       const form = document.getElementById("contactForm");
       if (form.classList.contains("hidden")) {
-        form.classList.remove("hidden"); // Menampilkan form
+        form.classList.remove("hidden"); 
       } else {
-        form.classList.add("hidden"); // Menyembunyikan form
+        form.classList.add("hidden"); 
       }
     });
   });
@@ -69,12 +108,12 @@
         document.getElementById("loader").classList.add("fade-out");
     }, 1000); // Loader hilang setelah 1 detik
 });
-// Animasi Fade In
+
 document.addEventListener("DOMContentLoaded", () => {
   const fadeElements = document.querySelectorAll(".fade-in");
 
   const options = {
-    root: null, // viewport
+    root: null, 
     rootMargin: "0px",
     threshold: 0.1, // 10% dari elemen harus terlihat
   };
@@ -82,10 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Tambahkan class animasi saat elemen terlihat
         entry.target.classList.add("visible");
       } else {
-        // Hapus class animasi saat elemen keluar dari viewport
         entry.target.classList.remove("visible");
       }
     });
@@ -105,44 +142,41 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     loader.style.display = "none"; // Sembunyikan loader setelah animasi
     content.style.display = "block"; // Tampilkan konten website
-  }, 500); // Sesuaikan dengan durasi transisi
+  }, 500); 
 });
 
 
 
 // Animasi Scroll
-let lastScrollTop = 0; // Menyimpan posisi scroll terakhir
+let lastScrollTop = 0; 
 const scrollElement = document.getElementById("scrollElement");
-let isVisible = false; // Menyimpan status visibilitas elemen
+let isVisible = false; 
 
 window.addEventListener("scroll", () => {
   let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-  // Jika menggulir ke bawah
   if (currentScroll > lastScrollTop) {
     if (!isVisible) {
-      // Hanya tampilkan jika tidak terlihat
-      scrollElement.style.display = "block"; // Tampilkan elemen
+      scrollElement.style.display = "block"; 
       setTimeout(() => {
-        scrollElement.style.opacity = "1"; // Set opasitas untuk tampil
-      }, 10); // Delay kecil untuk memicu transisi
-      isVisible = true; // Update status visibilitas
+        scrollElement.style.opacity = "1"; 
+      }, 10); 
+      isVisible = true; 
     }
   }
   // Jika menggulir ke atas
   else if (currentScroll < lastScrollTop) {
     if (isVisible) {
-      // Hanya sembunyikan jika terlihat
-      scrollElement.style.opacity = "0"; // Set opasitas untuk sembunyi
+      scrollElement.style.opacity = "0"; 
       setTimeout(() => {
-        scrollElement.style.display = "none"; // Sembunyikan setelah efek hilang
-      }, 500); // Waktu yang sama dengan durasi transisi
-      isVisible = false; // Update status visibilitas
+        scrollElement.style.display = "none"; 
+      }, 500); 
+      isVisible = false; 
     }
   }
 
   // Update posisi scroll terakhir
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Untuk mencegah nilai negatif
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; 
 });
 
  // Script untuk toggle menu pada mobile
@@ -209,19 +243,19 @@ document.addEventListener('scroll', () => {
   });
 });
 
-    const showMoreBtn = document.getElementById('showMoreBtn');
-    const hiddenCards = [document.getElementById('hiddenCard1')];
+  const showMoreBtn = document.getElementById('showMoreBtn');
+const hiddenCards = [
+  document.getElementById('hiddenCard1'),
+  document.getElementById('hiddenCard2'),
+];
 
-    showMoreBtn.addEventListener('click', () => {
-        hiddenCards.forEach(card => {
-            card.classList.toggle('hidden');
-        });
+showMoreBtn.addEventListener('click', () => {
+  hiddenCards.forEach(card => {
+    card.classList.toggle('hidden');
+  });
 
-        // Toggle button text between 'Selengkapnya' and 'Sembunyikan', using .trim() to avoid extra spaces issue
-        if (showMoreBtn.textContent.trim() === 'Selengkapnya') {
-            showMoreBtn.textContent = 'Sembunyikan';
-        } else {
-            showMoreBtn.textContent = 'Selengkapnya';
-        }
-    });
-
+  showMoreBtn.textContent = 
+    showMoreBtn.textContent.trim() === 'Selengkapnya' 
+      ? 'Sembunyikan' 
+      : 'Selengkapnya';
+});
