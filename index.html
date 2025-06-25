@@ -236,18 +236,21 @@
   </div>
 
   <!-- Hamburger Button (Mobile Only) -->
-  <button id="menu-btn" class="block lg:hidden text-white focus:outline-none" aria-label="Open Menu">
-    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  <button id="menu-btn" class="lg:hidden text-white focus:outline-none" aria-label="Toggle Menu">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </button>
 
   <!-- Menu Items -->
-  <div id="menu" class="hidden lg:flex gap-6 items-center">
-    <a href="#home" class="text-white hover:text-[#448eef] font-bold">Home</a>
-    <a href="#keahlian" class="text-white hover:text-[#448eef] font-bold">Keahlian</a>
-    <a href="#project" class="text-white hover:text-[#448eef] font-bold">Project</a>
-    <a href="#riwayat" class="text-white hover:text-[#448eef] font-bold">Riwayat Pendidikan</a>
+  <div id="menu"
+    class="hidden flex-col items-center absolute top-full left-0 w-full bg-[#92929241] text-white p-4 space-y-2
+           lg:static lg:flex lg:flex-row lg:space-y-0 lg:gap-6 lg:p-0 lg:w-auto lg:bg-transparent lg:items-start">
+    <a href="#home" class="block font-bold hover:text-[#448eef] text-center">Home</a>
+    <a href="#keahlian" class="block font-bold hover:text-[#448eef] text-center">Keahlian</a>
+    <a href="#project" class="block font-bold hover:text-[#448eef] text-center">Project</a>
+    <a href="#riwayat" class="block font-bold hover:text-[#448eef] text-center">Riwayat Pendidikan</a>
   </div>
 </nav>
 

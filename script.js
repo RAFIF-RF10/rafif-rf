@@ -88,7 +88,6 @@ function showInfo(type) {
 
   // Modal Form
   document.addEventListener("DOMContentLoaded", function () {
-    // Fungsi untuk menutup modal (form)
     function closeModal() {
       document.getElementById("contactForm").classList.add("hidden");
     }
@@ -180,10 +179,12 @@ window.addEventListener("scroll", () => {
 });
 
  // Script untuk toggle menu pada mobile
- document.getElementById('menu-btn').addEventListener('click', function() {
+  const menuBtn = document.getElementById('menu-btn');
   const menu = document.getElementById('menu');
-  menu.classList.toggle('hidden');
-});
+
+  menuBtn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
 function typeText(elementId, text, speed = 100) {
   try {
     const element = document.getElementById(elementId);
